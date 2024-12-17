@@ -245,7 +245,8 @@ def _get_unnormalised_prob(
     # We set the priority of the newly created items to the maximum priority however
     # we set masked items to 0.
     unnormalised_probability = (
-        jnp.full((max_num_items,), state.priority_state.max_recorded_priority)
+        # jnp.full((max_num_items,), state.priority_state.max_recorded_priority)
+        jnp.full((max_num_items,), 0)
         * priority_mask[None]
     )
     unnormalised_probability = jnp.repeat(
